@@ -50,7 +50,7 @@ export async function verifyPayment(req, res, next) {
         $inc: { bookedSeats: booking.quantity },
       },
       {
-        new: true, 
+        new: true,
       }
     );
 
