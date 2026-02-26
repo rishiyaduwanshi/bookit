@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "axios": "^1.13.1",
     "next": "16.0.10",
     "react": "19.2.0",
@@ -18,8 +19,8 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "@biomejs/biome": "2.2.0"
+    "tailwindcss": "^4"
   }
 }

@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import Navbar from '@/components/Navbar';
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
           {children}
           <ToastContainer />
         </ToastProvider>
+        <Analytics />
       </body>
     </html>
   );
