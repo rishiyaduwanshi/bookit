@@ -142,7 +142,7 @@ const Navbar = () => {
         <input
           type="search"
           name="searchbar"
-          id="searchbar"  
+          id="searchbar"
           placeholder="Search experiences"
           className="hidden sm:block font-medium text-sm px-2 py-1! sm:px-5 sm:h-10  sm:py-2 rounded"
           value={searchQuery}
