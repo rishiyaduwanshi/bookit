@@ -16,19 +16,22 @@ const Checkout = () => {
 
   const handleApplyPromo = useCallback(async () => {
     try {
-      if (promocode.length < 3) {
+      const code = promocode.trim().toUpperCase();
+      if (!code) return;
+
+      if (code.length < 3) {
         showWarning('The code you entered does not exists');
         return;
       }
       setIsApplying(true);
       const resp = await api.post('/promo/validate', {
-        promocode,
+        promocode: code,
       });
       showSuccess(resp.data.message);
       applyDiscount(
         resp.data.data.discountPercentage,
         resp.data.data._id,
-        promocode
+        code
       );
     } catch (error) {
       showError(error.response.data.message);
@@ -86,9 +89,11 @@ const Checkout = () => {
           disabled={isApplying}
         />
         <span
-          onClick={isApplying ? null : handleApplyPromo}
+          onClick={isApplying || !promocode ? null : handleApplyPromo}
           className={` ${
-            isApplying ? 'muted cursor-not-allowed' : 'cursor-pointer'
+            isApplying || !promocode
+              ? 'muted cursor-not-allowed'
+              : 'cursor-pointer'
           }  px-3 py-2 flex-1 rounded-md text-center bg-black text-amber-100 text-sm sm:text-base`}
         >
           {isApplying ? (
